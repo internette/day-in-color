@@ -1,21 +1,28 @@
 import { useState } from "react";
-import AddEvent from './components/addEvent/addEvent';
-import EventsList from './components/eventsList/eventsList';
 import { BrowserRouter, Routes, Route } from "react-router";
+import EventsList from './components/eventsList/eventsList';
+import AddEventButton from "./components/addEventButton/addEventButton";
+import AddEvent from "./components/addEvent/addEvent";
 import './App.css';
 
 function App() {
+  const generateTimeObj = (hrs:number, mins:number)=> {
+    const mockDate = new Date();
+    mockDate.setHours(hrs);
+    mockDate.setMinutes(mins);
+    return mockDate;
+  }
   const mockData = [{
-    startTime: new Date("December 25, 2024 8:30:00"),
-    endTime: new Date("December 25, 2024 10:30:00"),
+    startTime: generateTimeObj(8, 30),
+    endTime: generateTimeObj(10, 30),
     title: "Event 1"
   }, {
-    startTime: new Date("December 25, 2024 11:30:00"),
-    endTime: new Date("December 25, 2024 12:30:00"),
+    startTime: generateTimeObj(11, 30),
+    endTime: generateTimeObj(12, 30),
     title: "Event 2"
   }, {
-    startTime: new Date("December 25, 2024 13:30:00"),
-    endTime: new Date("December 25, 2024 15:30:00"),
+    startTime: generateTimeObj(13, 30),
+    endTime: generateTimeObj(15, 30),
     title: "Event 3"
   }]
   const [events, setEvents] = useState(mockData);
@@ -25,11 +32,9 @@ function App() {
       <Routes>
         <Route path="/" element={<>
           <EventsList events={events}/>
-          <AddEvent/>
+          <AddEventButton/>
         </>} />
-        <Route path="/add-event" element={
-          <div>This is where Add Event Page goes</div>
-        }/>
+        <Route path="/add-event" element={<AddEvent events={events} setEvents={setEvents}/>}/>
       </Routes>
       </main>
     </BrowserRouter>

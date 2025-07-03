@@ -7,6 +7,6 @@ export default function EventsList({ events }:{events: EventInfo[]}){
         return accumulator + ((currentValue.endTime.getTime()/1000) - (currentValue.startTime.getTime()/1000))
     }, 0);
     return(<ul id={styles.events}>{
-        events.map((event, index) => <Event eventInfo={event} isLastElement={index === events.length - 1} totalEventsSeconds={totalEventsTime}/>)
+        events.map((event, index) => <Event key={`event-${index}`} eventInfo={event} isLastElement={index === events.length - 1} totalEventsSeconds={totalEventsTime}/>)
     }</ul>)
 }
