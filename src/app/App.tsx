@@ -1,7 +1,7 @@
 import { useState } from "react";
-import AddEvent from './components/addEvent/addEvent';
-import EventsList from './components/eventsList/eventsList';
 import { BrowserRouter, Routes, Route } from "react-router";
+import EventsList from './components/eventsList/eventsList';
+import AddEventButton from "./components/addEventButton/addEventButton";
 import './App.css';
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<>
           <EventsList events={events}/>
-          <AddEvent/>
+          <AddEventButton/>
         </>} />
         <Route path="/add-event" element={
           <div>This is where Add Event Page goes</div>
