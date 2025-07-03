@@ -1,6 +1,6 @@
 import styles from "./addEvent.module.scss";
 export default function AddEvent(){
-    return <button className={styles.addEventBtn}>
+    return <a href="/add-event" className={styles.addEventBtn}>
         +
-    </button>
+    </a>
 }
