@@ -1,0 +1,44 @@
+.colorBar {
+  display: flex;
+  width: 100%; 
+  border-bottom: 1px dashed white;
+  &:last-child {
+    border-bottom: 0;
+  }
+  .colorBarText {
+    color: white;
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    flex-direction: column;
+    text-align: right;
+    padding: 0.6rem 0.8rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+        .timeSpan {
+            font-size: 1.1rem;
+        }
+        .timeSpent {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    }
+    button {
+        background-color: gray;
+        mix-blend-mode: multiply;
+        border: 0;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        font-size: 1.2rem;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        color: white;
+        margin-top: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}
