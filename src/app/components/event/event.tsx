@@ -1,10 +1,5 @@
 import styles from "./event.module.scss";
-
-interface EventInfo {
-    startTime: Date,
-    endTime: Date,
-    title: string
-}
+import EventInfo from "../../models/event";
 
 export default function Event({ eventInfo, isLastElement, totalEventsSeconds }:{ eventInfo: EventInfo, isLastElement: boolean, totalEventsSeconds: number }){
     const { startTime, endTime, title } = eventInfo;
