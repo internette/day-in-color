@@ -1,8 +1,10 @@
+import { useContext } from "react"; 
 import styles from "./eventsList.module.scss";
 import Event from '../event/event';
-import EventInfo from "../../models/event";
+import { EventsContext } from "../../contexts/events";
 
-export default function EventsList({ events }:{events: EventInfo[]}){
+export default function EventsList(){
+    const { events } = useContext(EventsContext);
     const totalEventsTime = events.reduce((accumulator, currentValue) => {
         return accumulator + ((currentValue.endTime.getTime()/1000) - (currentValue.startTime.getTime()/1000))
     }, 0);
